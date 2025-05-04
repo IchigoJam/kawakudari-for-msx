@@ -4,6 +4,7 @@
 
 ## setup
 
+install [openMSX](https://openmsx.org/) and [wla-dx](https://github.com/vhelin/wla-dx)
 ```sh
 brew install openmsx
 brew install wla-dx
