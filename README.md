@@ -9,9 +9,23 @@ brew install openmsx
 brew install wla-dx
 ```
 
+## compile and run
+
+```sh
+sh c.sh kawakudari
+```
+
+[c.sh](c.sh)
+```sh
+wla-z80 -o $1.obj $1.asm
+wlalink $1.linkfile $1.rom
+deno -A after4000.js $1.rom 
+openmsx -machine C-BIOS_MSX1_ICHIGOJAM_JP -cart $1.rom
+```
+
 ### C-BIOS font change to IchigoJam font
 
-using [IchigoJam-font](https://github.com/IchigoJam/ichigojam-font)
+using [IchigoJam-font](https://github.com/IchigoJam/ichigojam-font) for [C-BIOS](https://cbios.sourceforge.net/)
 ```sh
 deno -A changefont.js
 deno -A https://code4fukui.github.io/SHA1/cli.js cbios_main_msx1_ichigojam_jp.rom
@@ -25,18 +39,8 @@ cp C-BIOS_MSX1_ICHIGOJAM_JP.xml /opt/homebrew/Cellar/openmsx/20.0/openMSX.app/Co
 cp cbios_main_msx1_ichigojam_jp.rom /opt/homebrew/Cellar/openmsx/20.0/openMSX.app/Contents/Resources/share/machines/
 ```
 
-## compile and run
-
 ```sh
-sh c.sh kawakudari
-```
-
-[c.sh](c.sh)
-```sh
-wla-z80 -o $1.obj $1.asm
-wlalink $1.linkfile $1.rom
-deno -A after4000.js $1.rom 
-openmsx -machine C-BIOS_MSX1_ICHIGOJAM_JP -cart $1.rom
+sh c-ij.sh kawakudari
 ```
 
 ## reference
